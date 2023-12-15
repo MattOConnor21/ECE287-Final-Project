@@ -2,18 +2,18 @@
 Piano Tile game on DE2-112
 
 ## Overview
-This repository contains the Verilog code for a Piano Tile game implemented on an FPGA board. The game involves notes falling from the top of the screen, and the player scores points by pressing a button, and the note aligns with a horizontal line at the bottom.
+This repository contains the Verilog code for a Piano Tile game implemented on an FPGA board. The game involves notes falling from the top of the screen, and the player scores points by pressing a button when the note aligns with a horizontal line at the bottom.
 
 ## Problem Description
-The goal of this project is to create an interactive game on an FPGA board using Verilog. The game features falling notes, user input from buttons, and a scoring mechanism, along with a complex FSM with multiple states. Note that there is a known issue with the scoring mechanism, where the imperfect input of the button can lead to multiple score increments for each tick (50MHz) the button is held down.
+The goal of this project is to create an interactive game on an FPGA board using Verilog. The game features falling notes, user input from buttons, a scoring mechanism using the seven-segment display, and a complex FSM with multiple states. Note that there is a known issue with the scoring mechanism, where the imperfect input of the button can lead to multiple score increments for each tick (50MHz) the button is held down.
 
 ## Background Information
-Understanding the Verilog code is essential for anyone intending to use or extend this project. The project includes modules for VGA display, game control, scoring, and synchronization with user input. The game's state machine transitions through drawing, playing, erasing, and updating phases.
+Understanding the Verilog code is essential for anyone intending to use or extend this project. The project includes modules for VGA display, game control, scoring, and synchronization with user input. The game's state machine transitions through idle, drawing, playing, erasing, and updating phases.
 
 ## Design Description
 The main Verilog modules include:
 `final_project_main`: Top-level module integrating display, control, and scoring.
-`final_project_vga_controller`: VGA controller generating necessary signals for display, with credit to _______________ for the VGA display code.
+`final_project_vga_controller`: VGA controller generating necessary signals for display, with credit to Huan Dang for the VGA display code.
 `final_project_points`: Module handling scoring logic based on user input and note positions.
 `final_project_main_control`: Control module managing the game's state transitions.
 `final_project_seven_seg`: Module for displaying the score on a seven-segment display.
@@ -33,8 +33,11 @@ Despite the known issue with the scoring mechanism, the project demonstrates the
 
 **Demo Video**: https://youtube.com/shorts/JPL5mak56ks?feature=shared
 
+## Video Description
+As seen in the video the game is resting in an IDLE phase until switches 0 and 1 are turned on and then notes begin to fall. When the buttons corresponding to the displayed row are pressed as the note falls on the horizontal line the score is incremented. Finally, the reset feature is shown as switch 4 is turned on and then off. After being reset, the FSM continues to work as intended.
+
 ## Citations
-The project utilizes standard Verilog constructs and FPGA board-specific modules. Credit goes to ___________ for the VGA display code, which greatly contributed to the project.
+The project utilizes standard Verilog constructs and FPGA board-specific modules. Credit goes to Huan Dang for the VGA display code, which greatly contributed to the project.
 
 For any specific code credits or external references, provide links to the relevant sources in this section.
 
