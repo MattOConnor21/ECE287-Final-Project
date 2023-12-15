@@ -1,5 +1,6 @@
 // Matthew O'Connor & Sean Phelps
-
+// ECE 287 Final Project
+// Seven segment display .v file
 module final_project_seven_seg_disp (
 input [3:0]i,
 output reg [6:0]o

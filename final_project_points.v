@@ -1,4 +1,7 @@
-module final_project_points(clk, rst, key, y1, y2, y3, seg7_dig0, seg7_dig1, seg7_dig2); // calc middle of box, if in line then increment seven seg
+// Matthew O'Connor & Sean Phelps
+// ECE 287 Final Project
+// Points .v instantiation to handle score & instantiation of seven segment
+module final_project_points(clk, rst, key, y1, y2, y3, seg7_dig0, seg7_dig1, seg7_dig2);
 	input clk;
 	input rst;
 	input [3:0] key;
@@ -11,6 +14,8 @@ module final_project_points(clk, rst, key, y1, y2, y3, seg7_dig0, seg7_dig1, seg
 	
 	reg [6:0] score;
 	
+	// Sequential block to handle score when each button is pressed
+	// Checked against y position to make sure it is on the horizontal bar
 	always @(posedge clk) begin
 		if (rst == 1'b1)
 			score <= 0;
@@ -32,8 +37,7 @@ module final_project_points(clk, rst, key, y1, y2, y3, seg7_dig0, seg7_dig1, seg
 		end
 	end
 	
-//	final_project_seven_seg_disp seg_disp (
-//		.i
+	// Instantiation of seven segment 
 	final_project_seven_seg score_disp (
 		.score(score),
 		.seg7_dig0(seg7_dig0),

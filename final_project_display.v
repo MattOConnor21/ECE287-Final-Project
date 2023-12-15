@@ -1,3 +1,6 @@
+// Matthew O'Connor & Sean Phelps
+// ECE 287 Final Project
+// Display .v file used for drawing with vga & instantiating points and the main controller
 module final_project_display (clk_50, rst, sw, key, hex0, hex1, hex2, clk_25, hsync, vsync, red, green, blue);
 	input clk_50, rst;
 	input [3:0] key;
@@ -24,9 +27,9 @@ module final_project_display (clk_50, rst, sw, key, hex0, hex1, hex2, clk_25, hs
 	reg [63:0] flag = 64'd9999990;
 	reg [63:0] counter;
 	reg flag1 = 1'd1;
-	reg flag2, flag3;
 	
-	
+	// VGA instantiation
+	// h_count & v_count keep track of pixel locations for drawing
 	final_project_vga_controller vga (
 		.clk_50(clk_50),
 		.rst(rst),
@@ -35,10 +38,8 @@ module final_project_display (clk_50, rst, sw, key, hex0, hex1, hex2, clk_25, hs
 		.vsync(vsync),
 		.v_count(y),
 		.h_count(x));
-		
-//	wire note = x > o_x & x < o_x + 30 & y > o_y & y < o_y + 30;
-//	wire border = (x > 330 & x < 400) | (y >= 0 & y < 525);
-
+	
+	// Combinational block to draw the 3 columns for notes as well as bar at the bottom
 	always @(*) begin
 		if (en_erase == 1'b0) begin
 			if (y >= 0 && y < 525) begin
@@ -50,10 +51,6 @@ module final_project_display (clk_50, rst, sw, key, hex0, hex1, hex2, clk_25, hs
 					red = 8'hFF;
 					green = 8'hFF;
 					blue = 8'hFF;
-//				end else begin
-//					red = 8'h00;
-//					green = 8'h00;
-//					blue = 8'h00;
 				end
 				
 				else if (x >= 400 && x <= 405) begin
@@ -64,10 +61,6 @@ module final_project_display (clk_50, rst, sw, key, hex0, hex1, hex2, clk_25, hs
 					red = 8'hFF;
 					green = 8'hFF;
 					blue = 8'hFF;
-//				end else begin
-//					red = 8'h00;
-//					green = 8'h00;
-//					blue = 8'h00;
 				end
 				
 				else if (x >= 500 && x <= 505) begin
@@ -117,6 +110,8 @@ module final_project_display (clk_50, rst, sw, key, hex0, hex1, hex2, clk_25, hs
 		end 
 	end
 	
+	// Sequential block to control notes falling down the screen
+	// Flag utilized to make notes stop while others run
 	always @(posedge clk_50) begin
 		if (rst == 1'b1)
 			counter <= 64'd0;
@@ -136,14 +131,11 @@ module final_project_display (clk_50, rst, sw, key, hex0, hex1, hex2, clk_25, hs
 					if (o_y1 > 430) begin
 						o_y1 <= 50;
 						flag1 <= 1'd2;
-//						flag2 <= 1'b1;
 					end else if (o_y2 > 430) begin
 						o_y2 <= 50;
 						flag1 <= 1'd3;
-//						flag3 <= 1'b1;
 					end else if (o_y3 > 430) begin
 						o_y3 <= 50;
-//						flag3 <= 1'b0;
 						flag1 <= 1'd1;
 					end
 					
@@ -154,11 +146,11 @@ module final_project_display (clk_50, rst, sw, key, hex0, hex1, hex2, clk_25, hs
 				o_y1 <= 50;
 				o_y2 <= 50;
 				o_y3 <= 50;
-//				flag1 <= 1'b1;
 			end
 		end
 	end
 	
+	// Points instantiated for score
 	final_project_points pts(
 		.clk(clk_50),
 		.rst(rst),
@@ -169,7 +161,8 @@ module final_project_display (clk_50, rst, sw, key, hex0, hex1, hex2, clk_25, hs
 		.seg7_dig0(hex0),
 		.seg7_dig1(hex1),
 		.seg7_dig2(hex2));
-		
+	
+	// Controller instantiated for FSM
 	final_project_main_control cont (
 		.sw(sw),
 		.clk(clk_50),
