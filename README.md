@@ -28,7 +28,7 @@ The game successfully runs on the FPGA board, providing an interactive experienc
 Despite the known issue with the scoring mechanism, the project demonstrates the implementation of a falling notes game using Verilog on an FPGA. The modular design allows for easy understanding and potential extensions. Further improvements could address the scoring issue and enhance the game dynamics.
 
 ## Media
-![Gameplay Screenshot](/path/to/screenshot.png)
+![Gameplay Screenshot](Falling_Notes.jpg)
 *Caption: A screenshot demonstrating the gameplay of the falling notes game.*
 
 **Demo Video**: https://youtube.com/shorts/JPL5mak56ks?feature=shared
