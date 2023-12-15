@@ -1,0 +1,2 @@
+Info (10281): Verilog HDL Declaration information at final_project_control.v(3): object "draw" differs only in case from object "DRAW" in the same scope File: C:/Users/oconno51/Downloads/Final_Project/Final_Project/final_project_control.v Line: 3
+Info (10281): Verilog HDL Declaration information at final_project_control.v(3): object "erase" differs only in case from object "ERASE" in the same scope File: C:/Users/oconno51/Downloads/Final_Project/Final_Project/final_project_control.v Line: 3

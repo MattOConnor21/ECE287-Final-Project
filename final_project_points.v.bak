@@ -1,0 +1,10 @@
+module final_project_points(clk, rst, key, x, y, red, green, blue); // calc middle of box, if in line then increment seven seg
+	input clk;
+	input rst;
+	input [3:0] key;
+	input [9:0] x;
+	input [9:0] y;
+	
+	output reg [9:0] red;
+	output reg [9:0] green;
+	output reg [9:0] blue;

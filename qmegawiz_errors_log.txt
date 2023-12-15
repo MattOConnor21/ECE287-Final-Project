@@ -1,0 +1,37 @@
+
+
+C:/Users/oconno51/ece287/Final_Project/final_project_vga_pll.v
+
+Dec 12 08PM:21:30>: Error in CNX file format.
+
+Error messages are listed in file
+C:/Users/oconno51/ece287/Final_Project/final_project_vga_pll.cnxerr.
+
+Can't create the custom megafunction variation file(s)
+
+C:/Users/oconno51/ece287/Final_Project/final_project_vga_pll.v
+
+Dec 12 08PM:22:05>: Error in CNX file format.
+
+Error messages are listed in file
+C:/Users/oconno51/ece287/Final_Project/final_project_vga_pll.cnxerr.
+
+Can't create the custom megafunction variation file(s)
+
+C:/Users/oconno51/ece287/Final_Project/final_project_vga_pll.v
+
+Dec 12 08PM:26:33>: Error in CNX file format.
+
+Error messages are listed in file
+C:/Users/oconno51/ece287/Final_Project/final_project_vga_pll.cnxerr.
+
+Can't create the custom megafunction variation file(s)
+
+C:/Users/oconno51/ece287/Final_Project/final_project_vga_pll.v
+
+Dec 12 08PM:27:43>: Error in CNX file format.
+
+Error messages are listed in file
+C:/Users/oconno51/ece287/Final_Project/final_project_vga_pll.cnxerr.
+
+Can't create the custom megafunction variation file(s)

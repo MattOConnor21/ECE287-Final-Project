@@ -1,0 +1,18 @@
+module final_project_display (clk_50, rst, clk_25, hsync, vsync, red, green, blue);
+	input clk_50, rst;
+	output reg clk_25, hsync, vsync;
+	output reg [7:0] red, green, blue;
+	
+	reg tes_flag;
+	
+	final_project_vga_controller vga (
+		.clk_50(clk_50),
+		.rst(rst),
+		.clk_25(clk_25),
+		.hsync(hsync),
+		.vsync(vsync));
+		
+	assign {red, green, blue} = 8'b11111111;
+	
+endmodule
+			
