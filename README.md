@@ -11,13 +11,25 @@ The goal of this project is to create an interactive game on an FPGA board using
 Understanding the Verilog code is essential for anyone intending to use or extend this project. The project includes modules for VGA display, game control, scoring, and synchronization with user input. The game's state machine transitions through idle, drawing, playing, erasing, and updating phases.
 
 ## Design Description
-The main Verilog modules include:
-`final_project_main`: Top-level module integrating display, control, and scoring.
-`final_project_vga_controller`: VGA controller generating necessary signals for display, with credit to Huan Dang for the VGA display code.
-`final_project_points`: Module handling scoring logic based on user input and note positions.
-`final_project_main_control`: Control module managing the game's state transitions.
-`final_project_seven_seg`: Module for displaying the score on a seven-segment display.
-`final_project_display`: Module combining VGA display, scoring, and control.
+Let's break down the main Verilog modules:
+
+# final_project_main
+This is the top-level module that integrates all the essential components of the game. It brings together the display, control, and scoring aspects. The game's state machine manages transitions between drawing, playing, erasing, and updating phases.
+
+# final_project_vga_controller
+This module handles the VGA (Video Graphics Array) controller, generating signals needed for the display. VGA is a standard for interfacing computers with monitors, and in this case, it helps render the falling blocks on the screen. Special thanks to Jeremy Scott for providing the VGA display code.
+
+# final_project_points
+Responsible for managing the scoring logic based on user input and block positions. The module keeps track of the score, and there's a known issue here: pressing the button might lead to multiple score increments due to imperfect button input.
+
+# final_project_main_control
+This module oversees the game's control, managing state transitions. The game goes through drawing, playing, erasing, and updating phases, depending on user input and the current state.
+
+# final_project_seven_seg
+This module handles the display of the score on a seven-segment display. It breaks down the score into individual digits to showcase it visually.
+
+# final_project_display
+A module that combines the VGA display, scoring, and control. It ensures that the falling blocks are accurately displayed on the screen and responds to user input.
 
 The scoring mechanism has a known issue where multiple score increments can occur if the button is held down for more than 1 tick (50MHz).
 
