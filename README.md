@@ -5,7 +5,7 @@ Piano Tile game on DE2-112
 This repository contains the Verilog code for a Piano Tile game implemented on an FPGA board. The game involves notes falling from the top of the screen, and the player scores points by pressing a button when the note aligns with a horizontal line at the bottom.
 
 ## Documentation
-For a comprehensive understanding of the project, including its design, results, and the complexities involved, please visit our [GitHub Wiki](https://github.com/MattOConnor21/ECE287-Final-Project.wiki.git). The Wiki provides detailed information on every aspect of the project, from background information to the technical details of the implementation.
+For a comprehensive understanding of the project, including its design, results, and the complexities involved, please visit our [GitHub Wiki](../../wiki). The Wiki provides detailed information on every aspect of the project, from background information to the technical details of the implementation.
 
 ## Problem Description
 The goal of this project is to create an interactive game on an FPGA board using Verilog. The game features falling notes, user input from buttons, a scoring mechanism using the seven-segment display, and a complex FSM with multiple states. Note that there is a known issue with the scoring mechanism, where the imperfect input of the button can lead to multiple score increments for each tick (50MHz) the button is held down.
